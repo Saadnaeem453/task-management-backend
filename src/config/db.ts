@@ -11,9 +11,12 @@ const dbConnect = async ():Promise<void>=> {
      await mongoose.connect(mongoURI);
                 console.log("MOngoDb is connected")
     } catch (error) {
-        console.log(error.message)
-        process.exit(1)
+        if(error instanceof Error){
+            console.log(error.message)
+            process.exit(1)
+        }
     }
    
 
 }
+export default dbConnect

@@ -3,15 +3,15 @@ import mongoose, { Schema } from "mongoose";
 export interface ITask extends Document {
   user: mongoose.Schema.Types.ObjectId;
   title: string;
-  desc?: string;
+  description: string;
   completed: boolean;
   createdAt: Date;
 }
 
 const taskSchema:Schema = new Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    type: mongoose.Schema.Types.ObjectId, ref: 'User' ,
+
   },
   title: {
      type: String,
@@ -35,3 +35,4 @@ const taskSchema:Schema = new Schema({
 });
 
 const Task = mongoose.model<ITask>("Task", taskSchema);
+export default Task
